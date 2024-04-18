@@ -44,10 +44,19 @@ db.mongoose.connect(useCloud ? db.cloudUrl : db.localUrl , { useUnifiedTopology:
       process.exit();
   });
 
-// Register door model
-require("./models/doorModel");
-// Import door routes 
-require("./routes/doorRoutes")(app);
+
+
+//test yo
+
+// Import des routes de formulaire
+const formRoutes = require('./routes/formRoutes');
+// Utilisation des routes de formulaire dans l'application
+app.use('/api', formRoutes);
+
+require("./models/formModel"); // Assurez-vous de créer ce modèle dans votre dossier models
+
+
+// fin test
 
 // get access token for react front end
 app.get ('/token', function (req, res) {
@@ -60,17 +69,6 @@ app.get ('/token', function (req, res) {
       }
     });
 });
-
-
-// // Set up for production
-// if(process.env.NODE_ENV === 'production'){
-//     app.use(express.static(path.join(__dirname,'/client/build')));
-    
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.join(__dirname, '/client', 'build', 'index.html'));
-//     })
-// }
-
       
 // simple route
 app.get("/", (req, res) => {
