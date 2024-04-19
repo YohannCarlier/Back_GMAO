@@ -58,6 +58,14 @@ require("./models/formModel"); // Assurez-vous de créer ce modèle dans votre d
 
 // fin test
 
+//Test utilisateur
+
+//Import des routes utilisateurs
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/auth', userRoutes);
+
+ 
 // get access token for react front end
 app.get ('/token', function (req, res) {
   request.post(
