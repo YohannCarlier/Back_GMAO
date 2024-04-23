@@ -2,10 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const formController = require('../controllers/formController');
-// const auth = require('auth');
+const authentification = require('../middleware/authentification');
 
 // Route pour créer un nouveau formulaire
-// router.get('/', auth)
-router.post('/form', formController.createForm);
+router.post('/form', authentification,formController.createForm);
 
 module.exports = router;
