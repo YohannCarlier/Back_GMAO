@@ -88,3 +88,11 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
+
+app.get('/poi', (req, res) => {
+ //Trouver comment récupérer les POI dans la bdd ?
+});
+
+app.get('/settings', (req, res) => {
+  //PAs encore compris l'utilité
+});
